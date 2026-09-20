@@ -123,6 +123,32 @@ ul.clean li{padding:6px 0;padding-right:18px;position:relative;color:var(--cream
 ul.clean li::before{content:"";position:absolute;right:0;top:15px;width:7px;height:7px;background:var(--gold);transform:rotate(45deg)}
 .warn ul.clean li::before{background:var(--danger)}
 
+/* 40-day guide */
+.tracker label{display:block;font-size:14px;color:var(--muted);margin-bottom:4px}
+.tracker input{width:100%;padding:10px 12px;border-radius:12px;border:1px solid var(--glass-line);background:rgba(0,0,0,.25);color:var(--cream);font:500 16px var(--body);text-align:right;color-scheme:dark}
+.tracker .note{margin-top:10px;color:var(--gold-soft);font-size:14.5px}
+.days{margin-top:16px}
+.days details{border-inline-start:4px solid var(--emerald);scroll-margin-top:80px}
+.days details.p2{border-inline-start-color:var(--gold)}
+.days details.p3{border-inline-start-color:#e8a08a}
+.days details.today{box-shadow:0 0 0 2px var(--gold),0 0 24px rgba(217,180,91,.35)}
+.days summary{padding:13px 16px}
+.days summary .t{display:flex;flex-direction:column;gap:2px;min-width:0}
+.days summary .t b{font-size:17px;color:var(--gold-soft)}
+.days summary .t small{font:400 13px var(--body);color:var(--muted)}
+.days summary .badge{display:inline-block;font:600 11.5px var(--head);padding:1px 9px;border-radius:99px;margin-inline-start:6px;vertical-align:middle;background:rgba(217,180,91,.18);color:var(--gold-soft)}
+.days summary .badge.v{background:rgba(19,114,90,.5);color:#bff2df}
+.days summary .badge.now{background:var(--gold);color:var(--deep)}
+.dgrid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.dgrid div{background:rgba(0,0,0,.22);border-radius:14px;padding:9px 12px}
+.dgrid small{display:block;font-size:12.5px;color:var(--muted)}
+.dgrid b{font:600 16px var(--head);color:var(--cream)}
+.days .in ul.clean li{font-size:14.5px;padding:4px 0;padding-right:18px}
+.days .in ul.clean li::before{top:13px}
+.btip{margin-top:10px;padding:10px 12px;border-radius:14px;background:rgba(217,180,91,.10);border:1px dashed var(--glass-line);color:var(--gold-soft);font-size:14px}
+.rowline{font-size:14px;margin-bottom:10px;color:var(--cream)}
+.rowline span{color:var(--muted)}
+
 /* products */
 .prods{display:grid;gap:12px}
 .prod{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
@@ -177,6 +203,7 @@ footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px;paddi
     <a href="#top" class="on">الرئيسية</a>
     <a href="#egypt">في مصر</a>
     <a href="#cycle">دورة التسمين</a>
+    <a href="#days">دليل ٤٠ يوم</a>
     <a href="#battery">البطاريات</a>
     <a href="#compare">مقارنة</a>
     <a href="#calc">حاسبة</a>
@@ -263,8 +290,26 @@ footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px;paddi
     <li class="card"><h3>الأسبوع الثاني</h3><p>حوالي ٤٥٠–٤٨٠ جم. تخفيض الحرارة تدريجياً (نحو ٢–٣° كل أسبوع) وبدء برنامج التحصينات.</p><a class="mini" href="#products">دفايات المزارع من منتجاتنا</a></li>
     <li class="card"><h3>الأسبوع الثالث</h3><p>حوالي ٩٠٠–٩٥٠ جم. التحول إلى علف النمو، ومراقبة الأمونيا والرطوبة.</p></li>
     <li class="card"><h3>الأسبوع الرابع</h3><p>حوالي ١٫٥–١٫٦ كجم. أعلى استهلاك للعلف والماء، فتصبح التهوية عاملاً حاسماً خصوصاً في الصيف.</p><a class="mini" href="#products">خلايا التبريد من منتجاتنا</a></li>
-    <li class="card"><h3>الأسبوع الخامس فما فوق</h3><p>٢–٢٫٤ كجم تقريباً عند ٣٥–٤٠ يوم. علف الناهي ثم التسويق مع مراعاة فترة السحب للأدوية.</p></li>
+    <li class="card"><h3>الأسبوع الخامس فما فوق</h3><p>نحو ٢٫٣ كجم عند ٣٥ يوم، وقد يصل لقرابة ٢٫٨ كجم عند ٤٠ يوم. علف الناهي ثم التسويق مع مراعاة فترة السحب للأدوية.</p><a class="mini" href="#days">شوف دليل الـ ٤٠ يوم يوم بيوم</a></li>
   </ol>
+</div></section>
+
+<!-- 40 DAYS -->
+<section id="days"><div class="wrap">
+  <h2>دليل المربي الجديد: ٤٠ يوم</h2>
+  <p class="sub">بطاقة لكل يوم، اضغط + لفتحها. الأرقام تقريبية لسلالات مثل روس وكوب.</p>
+  <div class="card tracker">
+    <label for="placeDate">تاريخ استلام الكتاكيت (يوم ١)</label>
+    <input type="date" id="placeDate">
+    <p class="note" id="dayStatus" aria-live="polite">اختر التاريخ ويتحدد لك كارت النهارده.</p>
+    <div class="cta-row">
+      <button class="btn gold" id="goToday" hidden>افتح كارت النهارده</button>
+      <button class="btn ghost" id="openAll">افتح الكل</button>
+      <button class="btn ghost" id="closeAll">اقفل الكل</button>
+    </div>
+  </div>
+  <div class="days" id="daysList"></div>
+  <p class="note">التحصينات والأدوية والمواعيد الدقيقة يحددها الطبيب البيطري حسب منطقتك وحالة القطيع. المكتوب هنا أمثلة شائعة وليس وصفة علاجية.</p>
 </div></section>
 
 <!-- BATTERY BENEFITS -->
@@ -406,6 +451,7 @@ footer{margin-top:40px;text-align:center;color:var(--muted);font-size:13px;paddi
 <footer>معلومات إرشادية عامة وأرقام تقريبية، وليست بديلاً عن استشارة طبيب بيطري أو مهندس دواجن.</footer>
 
 <script>
+const $ = id => document.getElementById(id);
 // ===== إعدادات التواصل: عدّل هنا فقط =====
 const CONFIG = {
   phone: '+201067126902',          // للاتصال
@@ -426,8 +472,110 @@ document.querySelectorAll('[data-social]').forEach(a => {
 const socialsRow = document.querySelector('.socials');
 if(socialsRow && [...socialsRow.children].every(c => c.hidden)) socialsRow.hidden = true;
 
+// ===== دليل ٤٠ يوم =====
+const ar = n => Number(n).toLocaleString('ar-EG');
+const interp = (pts, x) => { for(let i=1;i<pts.length;i++){ if(x<=pts[i][0]){ const a=pts[i-1], b=pts[i]; return a[1]+(b[1]-a[1])*(x-a[0])/(b[0]-a[0]); } } return pts[pts.length-1][1]; };
+const WEIGHT = [[0,42],[1,55],[2,70],[3,87],[4,106],[5,128],[6,152],[7,180],[10,305],[14,470],[17,640],[21,920],[24,1190],[28,1550],[31,1880],[35,2300],[38,2620],[40,2850]];
+const FEEDG  = [[1,13],[3,20],[7,35],[10,52],[14,80],[17,100],[21,125],[24,145],[28,170],[31,190],[35,210],[38,222],[40,230]];
+const VAX = new Set([7,12,18]);
+const WEIGH = new Set([7,14,21,28,35]);
+const TASKS = {
+ 1:['استلام الكتاكيت وعدّها ووزن عينة والتأكد من نشاطها.','الحرارة والماء والعلف يكونوا جاهزين قبل الوصول بـ ٢٤ ساعة على الأقل.','بعد ٨–١٢ ساعة افحص الحواصل: المطلوب امتلاء ٨٠–٩٠٪ من الطيور.'],
+ 2:['افحص الحواصل مرة أخرى وتأكد أن الكتاكيت موزعة بانتظام، لا تزاحم تحت الدفاية ولا ابتعاد عنها.','سجّل النفوق، ويفضّل أن يقل إجمالي أول أسبوع عن ١٪ تقريباً.'],
+ 3:['راجع التهوية الدنيا: تجديد هواء بدون تيار مباشر على الكتاكيت.','اضبط ارتفاع المشارب عند مستوى ظهر الكتكوت.'],
+ 4:['في النظام الأرضي وسّع منطقة التربية تدريجياً حسب نمو الكتاكيت.','تأكد أن كل الكتاكيت تأكل وتشرب بلا مزاحمة.'],
+ 5:['وزن عينة وسجّلها.','اتفق مع الطبيب البيطري على برنامج الفيتامينات والتحصينات.'],
+ 6:['جهّز مستلزمات التحصين: لقاح محفوظ مبرّد وماء خالٍ من الكلور ومشارب نظيفة.'],
+ 7:['وزن الأسبوع الأول: المفروض نحو ٤ أضعاف وزن الكتكوت عند الاستلام.','موعد شائع لتحصين النيوكاسل والبرونكايتس (مثال) وفق برنامج الطبيب البيطري.'],
+ 8:['سجّل ملخص الأسبوع الأول: النفوق والاستهلاك والوزن.','ابدأ خفض الحرارة تدريجياً حسب سلوك الطيور.'],
+ 9:['راجع نظافة المشارب وضغط الماء، فالتسريب يبلل الفرشة أو الزرق ويرفع الأمونيا.'],
+ 10:['ابدأ الانتقال التدريجي من علف البادئ إلى النامي على ٢–٣ أيام.','خزّن العلف في مكان جاف ومظلل.'],
+ 11:['ارفع المعالف والمشارب مع نمو الطيور.','لو شميت الأمونيا بقوة فالتهوية ناقصة.'],
+ 12:['موعد شائع لتحصين الجامبورو (مثال) حسب الطبيب البيطري.','قلل الإزعاج داخل العنبر قبل وبعد التحصين.'],
+ 13:['قارن الأوزان: التجانس الجيد يعني أن أغلب الطيور قريبة من متوسط الوزن.'],
+ 14:['وزن نهاية الأسبوع الثاني، سجّله وقارنه بالمستهدف.','راجع مع الطبيب البيطري أي تحصين أو تكرار مطلوب.'],
+ 15:['زد معدل التهوية مع زيادة حجم الطيور وراقب الرطوبة (٥٠–٧٠٪ مناسبة).'],
+ 16:['نظّف سيور الزرق أو الفرشة بانتظام حتى لا تتراكم الأمونيا.'],
+ 17:['راجع الكهرباء والمولد الاحتياطي قبل مرحلة الاستهلاك العالي والحر.'],
+ 18:['موعد شائع لتحصين اللاسوتا (مثال) حسب الطبيب البيطري.'],
+ 19:['راقب الجهاز التنفسي: عطس أو صوت أو إفرازات، وبلّغ الطبيب البيطري فوراً.'],
+ 20:['سجّل الاستهلاك اليومي، فنقص مفاجئ في الأكل أو الشرب إنذار مبكر.'],
+ 21:['وزن نهاية الأسبوع الثالث، سجّله وقارنه بالمستهدف.','افحص أي عرج أو مشاكل في الأرجل.'],
+ 22:['راجع الكثافة وتوزيع الطيور، وخففها لو ظهر لهاث أو تزاحم.'],
+ 23:['راجع ضغط المياه ومعدل الصرف، فالطيور تشرب أكثر ويزيد الطلب.'],
+ 24:['جهّز علف الناهي وابدأ الانتقال إليه تدريجياً.'],
+ 25:['انتقل للناهي بدون تغيير مفاجئ في العلف.'],
+ 26:['ابدأ ترتيب الحجز مع تجار التسويق والمجازر.'],
+ 27:['راقب الحرارة العالية: اللهاث والأجنحة المفرودة علامات إجهاد حراري.'],
+ 28:['منتصف المرحلة الأعلى استهلاكاً للعلف والماء.','وزن نهاية الأسبوع الرابع، سجّله وقارنه بالمستهدف.'],
+ 29:['راجع خلايا التبريد ونظّف الفلاتر والمضخات قبل ذروة الحر.'],
+ 30:['لو استخدمت أي دواء أو مضاد حيوي فاحسب فترة السحب قبل التسويق.'],
+ 31:['قارن وزنك الحالي بالمستهدف وحدد تاريخ التسويق المتوقع.'],
+ 32:['في الصيف زد التهوية وقلل الحركة داخل العنبر وقت ذروة الحرارة.'],
+ 33:['افحص الأرجل والصدر: الحروق تخفض جودة الذبيحة وسعرها.'],
+ 34:['جهّز الصناديق ووسائل النقل والعمالة للتحميل.'],
+ 35:['وزن نهاية الأسبوع الخامس، وكثير من المربين يسوّق من هذه المرحلة حسب سعر السوق.','تأكد من انتهاء فترة سحب أي أدوية.'],
+ 36:['قرر موعد التسويق حسب سعر البيع وتكلفة العلف اليومية، فكل يوم إضافي يستهلك علفاً كبيراً.'],
+ 37:['احسب معدل التحويل الحالي: العلف المستهلك ÷ إجمالي وزن الطيور.'],
+ 38:['لا تسمح لسيارات التحميل بدخول العنبر، ودبّر منطقة تحميل خارجية (أمن حيوي).'],
+ 39:['قبل التحميل بـ ٦–٨ ساعات ارفع العلف وأبقِ الماء.','جهّز إضاءة خافتة للتحميل لتقليل الخدش والكدمات.'],
+ 40:['حمّل ليلاً أو فجراً في الجو الحار وبهدوء لتقليل الكدمات والنفوق.','بعد البيع: نظافة وتطهير وراحة للعنبر قبل الدورة التالية، واحسب نتيجة الدورة النهائية.']
+};
+const GENERIC = ['مرور ٤ مرات يومياً على الأقل: سلوك الطيور وتوزيعها وصوت التنفس.','سحب النافق وتسجيله يومياً.','فحص المشارب والمعالف والتهوية والحرارة.'];
+const BTIP = d => d<=7 ? 'في البطاريات: غطِّ أرضية القفص بورق أو مشمع أول أيام، وتأكد أن كل كتكوت يصل للمشرب والمعلف.'
+  : d<=24 ? 'في البطاريات: وزّع الطيور بالتساوي على الطوابق، وراقب حرارة الطابق العلوي لأنه الأدفأ، وافحص نبلات الماء يومياً.'
+  : 'في البطاريات: الطيور الثقيلة تحتاج مسار هواء قوي بين الطوابق، فراقب حروق الصدر والأرجل واضبط ارتفاع المعالف.';
+const daysBox = $('daysList');
+for(let d=1; d<=40; d++){
+  const w = Math.round(interp(WEIGHT,d)/5)*5;
+  const t = Math.max(21, 33 - 0.35*(d-1));
+  const fg = Math.round(interp(FEEDG,d));
+  const water = Math.round(fg*1.9/5)*5;
+  const phase = d<=10 ? 1 : d<=24 ? 2 : 3;
+  const feedName = ['بادئ','نامي','ناهي'][phase-1];
+  const light = d<=7 ? '٢٣ ساعة إضاءة' : '٢٠–٢٣ ساعة إضاءة';
+  const wtxt = w>=1000 ? ar((w/1000).toFixed(2))+' كجم' : ar(w)+' جم';
+  const tasks = (TASKS[d]||[]).concat(GENERIC.slice(0, 2));
+  const el = document.createElement('details');
+  el.className = 'card p'+phase; el.id = 'day'+d; el.dataset.day = d;
+  el.innerHTML =
+    '<summary><span class="t"><b>اليوم '+ar(d)+
+    (VAX.has(d)?'<span class="badge v">تحصين</span>':'')+
+    (WEIGH.has(d)?'<span class="badge">وزن</span>':'')+
+    (d>=35?'<span class="badge">تسويق محتمل</span>':'')+
+    '<span class="badge now" hidden>النهارده</span></b><small>علف '+feedName+' · وزن ≈ '+wtxt+' · حرارة ≈ '+ar(t.toFixed(1))+'°</small></span></summary>'+
+    '<div class="in"><div class="dgrid">'+
+    '<div><small>الوزن التقريبي</small><b>'+wtxt+'</b></div>'+
+    '<div><small>الحرارة المستهدفة</small><b>'+ar(t.toFixed(1))+'° م</b></div>'+
+    '<div><small>العلف / طائر</small><b>≈ '+ar(fg)+' جم</b></div>'+
+    '<div><small>الماء / طائر</small><b>≈ '+ar(water)+' مل</b></div></div>'+
+    '<p class="rowline"><span>نوع العلف:</span> '+feedName+' &nbsp;·&nbsp; <span>الإضاءة:</span> '+light+'</p>'+
+    '<ul class="clean">'+tasks.map(x=>'<li>'+x+'</li>').join('')+'</ul>'+
+    '<div class="btip">'+BTIP(d)+'</div></div>';
+  daysBox.appendChild(el);
+}
+$('openAll').addEventListener('click', () => daysBox.querySelectorAll('details').forEach(x => x.open = true));
+$('closeAll').addEventListener('click', () => daysBox.querySelectorAll('details').forEach(x => x.open = false));
+
+// تتبّع اليوم الحالي
+const pd = $('placeDate'), st = $('dayStatus'), goBtn = $('goToday');
+try { const sv = localStorage.getItem('broilerPlaceDate'); if(sv) pd.value = sv; } catch(e){}
+function refreshDay(){
+  daysBox.querySelectorAll('details.today').forEach(x => { x.classList.remove('today'); x.querySelector('.badge.now').hidden = true; });
+  goBtn.hidden = true;
+  if(!pd.value){ st.textContent = 'اختر التاريخ ويتحدد لك كارت النهارده.'; return; }
+  const start = new Date(pd.value + 'T00:00:00'); const now = new Date(); now.setHours(0,0,0,0);
+  const day = Math.round((now - start)/864e5) + 1;
+  if(day < 1){ st.textContent = 'الدورة تبدأ بعد ' + ar(1-day) + ' يوم.'; return; }
+  if(day > 40){ st.textContent = 'عدّى ' + ar(40) + ' يوم على هذا التاريخ، فالدورة انتهت.'; return; }
+  st.textContent = 'النهارده اليوم ' + ar(day) + ' من ' + ar(40) + '.';
+  const c = $('day'+day); c.classList.add('today'); c.querySelector('.badge.now').hidden = false; goBtn.hidden = false;
+}
+pd.addEventListener('change', () => { try{ localStorage.setItem('broilerPlaceDate', pd.value); }catch(e){} refreshDay(); });
+goBtn.addEventListener('click', () => { const c = daysBox.querySelector('details.today'); if(c){ c.open = true; c.scrollIntoView({behavior:'smooth', block:'center'}); } });
+refreshDay();
+
 // calculator
-const $ = id => document.getElementById(id);
 const ids = ['birds','mort','wt','fcr','price','chick','feed','other'];
 const fmt = n => Math.round(n).toLocaleString('ar-EG');
 function calc(){
